@@ -94,3 +94,7 @@ Future Enhancements
 2. Mobile App:
    A mobile version of ClubCorner is in development, aimed at providing easier access to event and competition management on the go.
 
+# Project Title
+
+## Flowchart
+![Project Flowchart](images/Project%20Flowchart.jpg)
