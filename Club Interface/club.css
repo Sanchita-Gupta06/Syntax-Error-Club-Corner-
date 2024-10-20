@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0B0C10;
+    color: #C5C6C7;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.title {
+    font-size: 32px;
+    color: #66FCF1;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 130px;
+    height: 130px;
+    margin-right: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.logo:hover {
+    transform: rotate(360deg);
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.edit-button {
+    background-color: transparent;
+    border: 1px solid #66FCF1;
+    color: #66FCF1;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.edit-button:hover {
+    background-color: #66FCF1;
+    color: #0B0C10;
+}
+
+.linktree {
+    font-size: 18px;
+}
+
+.linktree-url {
+    color: #66FCF1;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s;
+}
+
+.linktree-url:hover {
+    border-bottom: 2px solid #66FCF1;
+}
+
+.events-title,
+.competitions-title {
+    font-size: 28px;
+    color: #C5C6C7;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.events,
+.competitions {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card,
+.compete {
+    background-color: #1F2833;
+    width: 350px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+    color: #C5C6C7;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover,
+.compete:hover {
+    transform: scale(1.03);
+}
+
+.image-placeholder {
+    width: 100%; 
+    height: 200px; 
+    border-radius: 10px;
+    overflow: hidden;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #333; 
+    border: 1px dashed #66FCF1; 
+}
+
+.image-placeholder img {
+    width: 100%;  
+    height: 100%; 
+    object-fit: cover;  
+    object-position: center;  
+}
+
+
+
+#upload-prompt {
+    color: #C5C6C7;
+}
+
+.image-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.image-actions button {
+    background-color: #66FCF1;
+    color: #0B0C10;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    flex: 1;
+}
+
+.image-actions button:hover {
+    background-color: #45A29E;
+}
+
+.competition-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.competition-info label {
+    color: #66FCF1;
+    font-weight: bold;
+}
+
+.competition-info input,
+.competition-info textarea {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #C5C6C7;
+    background-color: #2C2F33;
+    color: #C5C6C7;
+    width: 100%;
+}
+
+.competition-info input::placeholder,
+.competition-info textarea::placeholder {
+    color: #B5B5B5;
+}
+
+.competition-info textarea {
+    resize: none;
+    height: 60px;
+}
+
+.update-button {
+    text-align: center;
+}
+
+.update-button button {
+    background-color: #45A29E;
+    color: #0B0C10;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.update-button button:hover {
+    background-color: #66FCF1;
+    box-shadow: 0 4px 10px rgba(102, 252, 241, 0.6);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.icon-container {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-container button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.icon-container .add-event,
+.icon-container .add-competition {
+    background-color: #66FCF1;
+    color: #0B0C10;
+}
+
+.icon-container .remove-event,
+.icon-container .remove-competition {
+    background-color: #FF6B6B;
+    color: #0B0C10;
+}
+
+.icon-container button:hover {
+    transform: translateY(-2px);
+}
+
+.icon-container button:active {
+    transform: translateY(0);
+}
+
+.icon-container button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(102, 207, 241, 0.5);
+}
+
+.card {
+    background-color: #1F2833;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    width: calc(30% - 20px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.image-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.image-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.competition-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.update-button {
+    display: flex;
+    justify-content: flex-end;
+}

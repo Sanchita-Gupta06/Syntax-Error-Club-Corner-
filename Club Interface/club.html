@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSG - Data Science Group</title>
+    <link rel="stylesheet" href="club.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">
+            <img src="F:\Syntax Error\clubs logo\dsg\dsg.jpg" alt="DSG Logo" class="logo" id="logo">
+            DSG - Data Science Group
+        </h1>
+
+        <p class="description">
+            The Data Science Group (DSG) is a student organization dedicated to fostering innovation through the power of machine learning and data analytics. We aim to provide members with hands-on experience in data science, from data wrangling to machine learning algorithms. Our mission is to equip students with the skills needed to succeed in the rapidly evolving field of data science.
+            <button class="edit-button">Edit description</button>
+        </p>
+
+        <p class="linktree">Linktree: <a href="https://linktr.ee/dsgiitr" target="_blank" class="linktree-url">Click here</a></p>
+
+        <h2 class="events-title">Upcoming Events
+            <div class="icon-container">
+                <button class="add-event">Add</button>
+                <button class="remove-event">Remove</button>
+            </div>
+        </h2>
+        <div class="events">
+            <!-- Event Card -->
+            <div class="card">
+                <div class="image-placeholder">
+                    <img src="" alt="Event Logo" id="event-logo-preview" style="display: none;">
+                    <p id="event-upload-prompt">Upload Logo</p>
+                </div>
+                <div class="image-actions">
+                    <input type="file" id="event-logo-input" accept="image/*" style="display: none;">
+                    <button id="event-upload-button">Upload Logo</button>
+                    <button id="event-remove-button" style="display: none;">Remove Logo</button>
+                </div>
+                <div class="competition-info">
+                    <label for="event-name">Event Name:</label>
+                    <input type="text" id="event-name" placeholder="Enter event name" required>
+
+                    <label for="date">Date:</label>
+                    <input type="date" id="event-date" required>
+
+                    <label for="time">Time:</label>
+                    <input type="time" id="event-time" required>
+
+                    <label for="venue">Venue:</label>
+                    <input type="text" id="event-venue" placeholder="Enter venue" required>
+
+                    <label for="description">Description:</label>
+                    <textarea id="event-description" placeholder="Enter description" required></textarea>
+
+                    <label for="registration-link">Registration Link:</label>
+                    <input type="url" id="event-registration-link" placeholder="Enter registration link" required>
+                </div>
+                <div class="update-button">
+                    <button>Update!</button>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="competitions-title">Upcoming Competitions/Hackathons
+            <div class="icon-container">
+                <button class="add-competition">Add</button>
+                <button class="remove-competition">Remove</button>
+            </div>
+        </h2>
+        <div class="competitions">
+            <div class="card">
+                <div class="image-placeholder">
+                    <img src="" alt="Competition Logo" id="compete-logo-preview" style="display: none;">
+                    <p id="compete-upload-prompt">Upload Logo</p>
+                </div>
+                <div class="image-actions">
+                    <input type="file" id="compete-logo-input" accept="image/*" style="display: none;">
+                    <button id="compete-upload-button">Upload Logo</button>
+                    <button id="compete-remove-button" style="display: none;">Remove Logo</button>
+                </div>
+                <div class="competition-info">
+                    <label for="competition-name">Event Name:</label>
+                    <input type="text" id="competition-name" placeholder="Enter competition name" required>
+
+                    <label for="timeline">Timeline:</label>
+                    <input type="text" id="competition-timeline" placeholder="Enter timeline" required>
+
+                    <label for="competition-description">Description:</label>
+                    <textarea id="competition-description" placeholder="Enter description" required></textarea>
+
+                    <label for="competition-registration-link">Registration Link:</label>
+                    <input type="url" id="competition-registration-link" placeholder="Enter registration link" required>
+                </div>
+                <div class="update-button">
+                    <button>Update!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       
+        document.getElementById('event-upload-button').addEventListener('click', function () {
+            const fileInput = document.getElementById('event-logo-input');
+            fileInput.click();
+
+            fileInput.onchange = function () {
+                const file = fileInput.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const preview = document.getElementById('event-logo-preview');
+                        preview.src = e.target.result;
+                        preview.style.display = 'block';
+                        document.getElementById('event-upload-prompt').style.display = 'none';
+                        document.getElementById('event-remove-button').style.display = 'inline';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+        });
+
+        
+        document.getElementById('event-remove-button').addEventListener('click', function () {
+            const preview = document.getElementById('event-logo-preview');
+            preview.src = '';
+            preview.style.display = 'none';
+            document.getElementById('event-upload-prompt').style.display = 'block';
+            this.style.display = 'none';
+        });
+
+       
+        document.getElementById('compete-upload-button').addEventListener('click', function () {
+            const fileInput = document.getElementById('compete-logo-input');
+            fileInput.click();
+
+            fileInput.onchange = function () {
+                const file = fileInput.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const preview = document.getElementById('compete-logo-preview');
+                        preview.src = e.target.result;
+                        preview.style.display = 'block';
+                        document.getElementById('compete-upload-prompt').style.display = 'none';
+                        document.getElementById('compete-remove-button').style.display = 'inline';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+        });
+
+        
+        document.getElementById('compete-remove-button').addEventListener('click', function () {
+            const preview = document.getElementById('compete-logo-preview');
+            preview.src = '';
+            preview.style.display = 'none';
+            document.getElementById('compete-upload-prompt').style.display = 'block';
+            this.style.display = 'none';
+        });
+
+      
+        function addEventCard() {
+            const eventCard = document.createElement('div');
+            eventCard.classList.add('card');
+            eventCard.innerHTML = `
+                <div class="image-placeholder">
+                    <img src="" alt="Event Logo" style="display: none; width: 100px; height: 100px;">
+                    <p>Upload Logo</p>
+                </div>
+                <div class="image-actions">
+                    <input type="file" accept="image/*" style="display: none;">
+                    <button>Upload Logo</button>
+                    <button style="display: none;">Remove Logo</button>
+                </div>
+                <div class="competition-info">
+                    <label>Event Name:</label>
+                    <input type="text" placeholder="Enter event name" required>
+                    
+                    <label>Date:</label>
+                    <input type="date" required>
+                    
+                    <label>Time:</label>
+                    <input type="time" required>
+                    
+                    <label>Venue:</label>
+                    <input type="text" placeholder="Enter venue" required>
+                    
+                    <label>Description:</label>
+                    <textarea placeholder="Enter description" required></textarea>
+                    
+                    <label>Registration Link:</label>
+                    <input type="url" placeholder="Enter registration link" required>
+                </div>
+                <div class="update-button">
+                    <button>Update!</button>
+                </div>
+            `;
+            document.querySelector('.events').appendChild(eventCard);
+            addEventCardListeners(eventCard);
+        }
+
+       
+        function addEventCardListeners(eventCard) {
+            const fileInput = eventCard.querySelector('input[type="file"]');
+            const uploadButton = eventCard.querySelector('.image-actions button:nth-of-type(1)');
+            const removeButton = eventCard.querySelector('.image-actions button:nth-of-type(2)');
+            const previewImage = eventCard.querySelector('.image-placeholder img');
+            const uploadPrompt = eventCard.querySelector('.image-placeholder p');
+
+            uploadButton.addEventListener('click', function () {
+                fileInput.click();
+
+                fileInput.onchange = function () {
+                    const file = fileInput.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = 'block';
+                    previewImage.style.objectFit = 'cover'; // Ensures the image fills the container
+                    previewImage.style.width = '100%';
+                    previewImage.style.height = '100%';
+                    uploadPrompt.style.display = 'none';
+                    removeButton.style.display = 'inline';
+                };
+                reader.readAsDataURL(file);
+                    }
+                };
+            });
+
+            removeButton.addEventListener('click', function () {
+                previewImage.src = '';
+                previewImage.style.display = 'none';
+                uploadPrompt.style.display = 'block';
+                removeButton.style.display = 'none';
+            });
+        }
+
+        function addCompetitionCard() {
+            const competitionCard = document.createElement('div');
+            competitionCard.classList.add('card');
+            competitionCard.innerHTML = `
+                <div class="image-placeholder">
+                    <img src="" alt="Competition Logo" style="display: none; width: 100px; height: 100px;">
+                    <p>Upload Logo</p>
+                </div>
+                <div class="image-actions">
+                    <input type="file" accept="image/*" style="display: none;">
+                    <button>Upload Logo</button>
+                    <button style="display: none;">Remove Logo</button>
+                </div>
+                <div class="competition-info">
+                    <label>Event Name:</label>
+                    <input type="text" placeholder="Enter competition name" required>
+                    
+                    <label>Timeline:</label>
+                    <input type="text" placeholder="Enter timeline" required>
+                    
+                    <label>Description:</label>
+                    <textarea placeholder="Enter description" required></textarea>
+                    
+                    <label>Registration Link:</label>
+                    <input type="url" placeholder="Enter registration link" required>
+                </div>
+                <div class="update-button">
+                    <button>Update!</button>
+                </div>
+            `;
+            document.querySelector('.competitions').appendChild(competitionCard);
+            addCompetitionCardListeners(competitionCard);
+        }
+
+       
+        function addCompetitionCardListeners(competitionCard) {
+            const fileInput = competitionCard.querySelector('input[type="file"]');
+            const uploadButton = competitionCard.querySelector('.image-actions button:nth-of-type(1)');
+            const removeButton = competitionCard.querySelector('.image-actions button:nth-of-type(2)');
+            const previewImage = competitionCard.querySelector('.image-placeholder img');
+            const uploadPrompt = competitionCard.querySelector('.image-placeholder p');
+
+            uploadButton.addEventListener('click', function () {
+                fileInput.click();
+
+                fileInput.onchange = function () {
+                    const file = fileInput.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = 'block';
+                    previewImage.style.objectFit = 'cover'; 
+                    previewImage.style.width = '100%';
+                    previewImage.style.height = '100%';
+                    uploadPrompt.style.display = 'none';
+                    removeButton.style.display = 'inline';
+                };
+                reader.readAsDataURL(file);
+                    }
+                };
+            });
+
+            removeButton.addEventListener('click', function () {
+                previewImage.src = '';
+                previewImage.style.display = 'none';
+                uploadPrompt.style.display = 'block';
+                removeButton.style.display = 'none';
+            });
+        }
+       
+
+
+       
+        document.querySelector('.add-event').addEventListener('click', addEventCard);
+        document.querySelector('.remove-event').addEventListener('click', function () {
+            const events = document.querySelectorAll('.events .card');
+            if (events.length > 1) {
+                events[events.length - 1].remove();
+            }
+        });
+
+        document.querySelector('.add-competition').addEventListener('click', addCompetitionCard);
+        document.querySelector('.remove-competition').addEventListener('click', function () {
+            const competitions = document.querySelectorAll('.competitions .card');
+            if (competitions.length > 1) {
+                competitions[competitions.length - 1].remove();
+            }
+        });
+    </script>
+</body>
+
+</html>

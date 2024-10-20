@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    background-color: #0B0C10;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.above {
+    max-height: 10vh;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 30px;
+}
+
+.below {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 13px;
+    width: 98vw;
+    height: 90vh;
+}
+
+.left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    width: 59vw;
+    padding: px;
+    margin-left: 12px;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 90vh;
+    width: 38vw;
+    padding: 5px;
+}
+
+.lu {
+    width: 50vw;
+    height: 45vh;
+}
+
+.ll {
+    width: 50vw;
+    height: 45vh;
+}
+
+.ru {
+    width: 38vw;
+    height: 40vh;
+}
+
+.rl {
+    width: 38vw;
+    height: 50vh;
+}
+
+.tcolor{
+    color: #66FCF1;
+    position: absolute;
+    left: 40vw;
+    top:20px;
+}
+
+.bt{
+    color: #66FCF1;
+    padding-left: 20px;
+}
+
+.logo {
+    width: 150px;
+    position: absolute;
+    top: 10px;
+    border-radius: 10px;
+}
+
+.name {
+    position: absolute;
+    color: #C5C6C7;
+    bottom: -17px;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1F2833;
+    min-width: 160px;  
+    height: 198px;
+    border-radius: 10px;
+    margin-right: 15px; 
+    cursor: pointer; 
+}
+
+.card:hover{
+    background-color: #334053;
+    transition: 0.5s;
+    width: 165px;
+    height: 200px;
+}
+
+.hori {
+    display: flex;
+    overflow-x: auto;  
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    scroll-behavior: smooth;  
+}
+
+.hori::-webkit-scrollbar {
+    display: none; 
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
+    gap: 10px; 
+    margin-top: 20px;
+}
+
+.weekday-header {
+    display: contents; 
+}
+
+.weekday {
+    background-color: #45A29E;
+    color: black;
+    padding: 4px;  
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;  
+}
+
+.day {
+    background-color: #1F2833;
+    border-radius: 5px;
+    padding: 4px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    position: relative;
+}
+
+.day:hover {
+    background-color: #66FCF1;
+    color: black;
+    transition: 0.5s;
+}
+
+#eventsList{
+    list-style-type: circle; 
+    padding-left: 40px;
+    color: white;
+}
+
+#eventsList li::marker {
+    color: #66FCF1;  
+    font-size: 1.7em;  
+}
+
+.wholabove{
+    position: relative;
+    height: 100vh;
+}
+
+.whoimg{
+    position: absolute;
+}
+
+.wh{
+    position: absolute;
+    top: -25px;
+    width: 98vw;
+    height: 100vh;
+    opacity: 0.5;
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    position: relative;
+    top: 350px;
+    width: 900px;
+}
+
+.under1 {
+    font-size: 30px;
+    font-weight: bolder;
+    color: #66FCF1;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid #66FCF1;
+    animation: blink 0.7s infinite alternate;
+    margin-top: 47px;
+}
+
+@keyframes blink {
+    0% {
+        border-color: #66FCF1;
+    }
+    50% {
+        border-color: transparent;
+    }
+}
+
+
+
+.under2{
+    font-size: 21px;
+    color: #C5C6C7;
+    font-family: "Roboto Mono", monospace;
+}
+
+.logo1{
+    width: 284px;
+}

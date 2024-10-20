@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <p>How do you want to log in?</p>
+            <div class="login-options">
+                <button class="student-btn" onclick="showStudentForm()">Student</button>
+                <button class="club-btn" onclick="showClubForm()">Club</button>
+            </div>
+            <form id="student-form" class="login-form hidden" method="POST" action="/login-system/login=">
+                <label for="enrollment">Enrollment No.</label>
+                <input type="text" id="enrollment" name="enrollment_no" placeholder="Enter Enrollment No." required>
+                <label for="password">Password</label>
+                <input type="password" id="student-password" name="password" placeholder="Enter Password" required>
+                <button type="submit">Login</button>
+            </form>
+            
+            
+            <form id="club-form" class="login-form hidden" method="POST" action="/login-system/login-club">
+                <label for="club-id">Club ID</label>
+                <input type="text" id="club-id" name="club_id" placeholder="Enter Club ID" required>
+                <label for="club-passcode">Passcode</label>
+                <input type="password" id="club-passcode" name="password" placeholder="Enter Passcode" required>
+                <button type="submit">Login</button>
+            </form>
+            
+            
+        </div>
+        <div class="welcome-box">
+            <h1>Welcome to <br> Student Portal</h1>
+            <p>Login to access your account</p>
+            <div class="image-placeholder"></div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
